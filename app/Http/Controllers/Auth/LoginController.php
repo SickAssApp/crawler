@@ -30,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -59,7 +59,7 @@ class LoginController extends Controller
    
                 Auth::login($finduser);
   
-                return redirect('/home');
+                return redirect('/login');
    
             }else{
                 $newUser = User::create([
@@ -70,10 +70,12 @@ class LoginController extends Controller
   
                 Auth::login($newUser);
    
-                return redirect()->back();
+                return redirect()->to('/');
             }
   
         } catch (Exception $e) {
+            App::abort(403, 'Found exception!');
+
             return redirect('auth/google');
         }
     }
