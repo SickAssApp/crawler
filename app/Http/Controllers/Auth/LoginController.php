@@ -74,7 +74,7 @@ class LoginController extends Controller
             }
   
         } catch (Exception $e) {
-            App::abort(403, 'Found exception!');
+            Log::error($e);
 
             return redirect('auth/google');
         }
