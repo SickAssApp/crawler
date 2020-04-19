@@ -34,5 +34,10 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    'google' => [
+        'client_id' => '264428031886-j805ffkm2u4g5lln6tietpfrnqib45d3.apps.googleusercontent.com',
+        'client_secret' => 'zCr8cpF1_I3Viv2pgAnMrCV0',
+        'redirect' => 'https://astro-crawler-jim.herokuapp.com/auth/google/callback',
+    ],
 
 ];

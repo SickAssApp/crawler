@@ -51,6 +51,10 @@
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
+                                <a href="{{ url('auth/google') }}" class="btn btn-primary">
+                                    <strong>Login With Google</strong>
+                                </a>
+
                                 <button type="submit" class="btn btn-primary">
                                     Login
                                 </button>

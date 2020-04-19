@@ -40,13 +40,20 @@ class crawlPerHour extends Command
      */
     public function handle(CrawlFunc $CrawlFunc)
     {
-        $astroAry = array();
+        $astroAry = array();        
+        // Return sample
+        // array(
+        //     0 => array(
+        //             'url'   => 'url',
+        //             'title' => 'title',
+        //         )
+        // )        
         $astroAry = $CrawlFunc->crawlAstroURL(Config::get('siteConfig.crawlUrl'));
         
         // var_dump($astroAry);
         foreach($astroAry as $k => $v){            
-            $resAry = $CrawlFunc->crawlAstroInfo($v, '.TODAY_CONTENT > p');            
-            $CrawlFunc->analizeNSave($resAry);
+            $resAry = $CrawlFunc->crawlAstroInfo($v['url'], '.TODAY_CONTENT > p');            
+            $CrawlFunc->analizeNSave($resAry,$v['title']);
         }
     }
 }

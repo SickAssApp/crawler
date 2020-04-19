@@ -36,7 +36,7 @@ class CrawlFunc
           $_this = $this;
           $data = $crawler->filter('li[class*="STAR_"]')
                           ->each(function (Crawler $node, $i) use($_this) {
-                            return $_this->getEachAstroURL($node);                                                        
+                            return $_this->getAstroInfo($node);                                                        
                           }
                       );
           return $data;
@@ -81,11 +81,11 @@ class CrawlFunc
        *
        * 
        */
-    public function analizeNSave($data)
+    public function analizeNSave($data,$astroName)
     {
       
       $page = new Page;
-
+      $page->astroName  =   $astroName;
       $page->totalScore =   $this->getStarCount($data[0]);
       $page->totalDesc  =   $data[1];
       $page->loveScore  =   $this->getStarCount($data[2]);
@@ -110,9 +110,14 @@ class CrawlFunc
     }
 
     // Filter the hyperlink context.
-    private function getEachAstroURL($node)
+    private function getAstroInfo($node)
     {
-      return $node->filter('a')->attr('href');
+      $resAry = array(
+        'url'   => $node->filter('a')->attr('href'),
+        'title' => $node->filter('a')->attr('title'),
+      );
+      
+      return $resAry;
     }
 
     // Get actual link
