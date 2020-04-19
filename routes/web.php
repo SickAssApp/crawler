@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/viewRes', 'HomeController@index')->name('home');
+Route::get('/viewRes', 'ViewCrawlerResult@index')->name('viewRes');
 
 // Google Auth
 Route::get('google', function () {

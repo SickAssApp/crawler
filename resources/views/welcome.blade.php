@@ -83,7 +83,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Click here to view the Crawler result!</a>                  
+                    <a href="/viewRes">Click here to view the Crawler result!</a>                  
                 </div>
             </div>
         </div>
