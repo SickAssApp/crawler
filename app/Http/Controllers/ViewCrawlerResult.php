@@ -16,8 +16,9 @@ class ViewCrawlerResult extends Controller
 
     public function index()
     {        
-        $pageData = Page::whereDate('created_at', DB::raw('CURDATE()'))->get();
-        
+        // $pageData = Page::whereDate('created_at', DB::raw('CURDATE()'))->get();
+        $pageData = Page::whereDate('created_at', '=', '2020-04-21');
+
         return view('showList',['posts' => $pageData]);
     }
 }
